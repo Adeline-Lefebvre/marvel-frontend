@@ -1,14 +1,17 @@
 import "../App.scss";
 import logo from "../logo.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className="header">
-      <img src={logo} alt="" />
+      <Link to="/characters">
+        <img src={logo} alt="" />
+      </Link>
       <div className="menu">
-        <div>Personnages</div>
-        <div>Comics</div>
-        <div>Favoris</div>
+        <Link to="/characters">PERSONNAGES</Link>
+        <Link to="/comics">COMICS</Link>
+        <Link to="/favorites">FAVORIS</Link>
       </div>
     </div>
   );

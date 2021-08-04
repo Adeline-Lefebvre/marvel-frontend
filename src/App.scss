@@ -1,1 +1,119 @@
+body {
+  background-color: rgb(43, 43, 43);
+  color: white;
+}
 
+.header {
+  font-family: "Ubuntu", Arial, Helvetica;
+  display: flex;
+  padding: 20px;
+  font-size: 18px;
+  border-bottom: gray solid 1px;
+}
+
+.header {
+  img {
+    width: 150px;
+  }
+  .menu {
+    display: flex;
+    align-items: center;
+  }
+  .menu > * {
+    margin-left: 30px;
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.characters {
+  width: 95%;
+  margin: 50px auto;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Ubuntu", Arial, Helvetica;
+}
+
+.character {
+  max-width: 250px;
+  margin: 15px 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.character {
+  .name {
+    text-align: center;
+    font-size: 16px;
+  }
+  img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin: 15px 0;
+  }
+  .description {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.page-num {
+  font-family: "Ubuntu", Arial, Helvetica;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  line-height: 20px;
+  align-items: center;
+}
+
+.page-num-arrow {
+  margin: 0 10px;
+  border-radius: 50%;
+  background-color: white;
+  line-height: 26px;
+  width: 28px;
+  border: none;
+  font-size: 18px;
+  text-align: center;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.page-num-arrow:hover {
+  cursor: pointer;
+  background-color: var(--blue);
+  color: white;
+}
+
+.footer {
+  font-family: "Ubuntu", Arial, Helvetica;
+  border-top: rgb(231, 231, 231) solid 1px;
+  line-height: 200px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.footer {
+  span {
+    font-weight: bold;
+  }
+  a {
+    background-color: rgba(white, 0.1);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  a:hover {
+    background-color: var(--blue);
+    color: white;
+    cursor: pointer;
+  }
+}

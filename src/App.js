@@ -1,7 +1,6 @@
-import "./App.css";
+import "./App.scss";
+import "./reset.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import axios from "axios";
-import { useState, useEffect } from "react";
 import Header from "./components/Header.js";
 import Characters from "./containers/Characters.js";
 import Character from "./containers/Character.js";
