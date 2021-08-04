@@ -1,10 +1,34 @@
 import "./App.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import Header from "./components/Header.js";
+import Characters from "./containers/Characters.js";
+import Character from "./containers/Character.js";
+import Comics from "./containers/Comics.js";
+import Favorites from "./containers/Favorites.js";
+import Footer from "./components/Footer.js";
 
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route path="/characters">
+          <Characters />
+        </Route>
+        <Route path="/character/:id">
+          <Character />
+        </Route>
+        <Route path="/comics">
+          <Comics />
+        </Route>
+        <Route path="/favorites">
+          <Favorites />
+        </Route>
+      </Switch>
+      <Footer />
+    </Router>
   );
 }
 
