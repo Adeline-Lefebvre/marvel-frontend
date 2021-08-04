@@ -63,7 +63,6 @@ body {
   font-family: "Ubuntu", Arial, Helvetica;
   display: flex;
   justify-content: center;
-  font-weight: bold;
   margin-top: 20px;
   padding-bottom: 20px;
   line-height: 20px;
@@ -73,12 +72,13 @@ body {
 .page-num-arrow {
   margin: 0 10px;
   border-radius: 50%;
-  background-color: white;
   line-height: 26px;
   width: 28px;
   border: none;
   font-size: 18px;
   text-align: center;
+  color: white;
+  background-color: rgb(43, 43, 43);
 }
 
 .hidden {
@@ -87,7 +87,7 @@ body {
 
 .page-num-arrow:hover {
   cursor: pointer;
-  background-color: var(--blue);
+  background-color: rgba(white, 0.1);
   color: white;
 }
 
@@ -110,10 +110,11 @@ body {
     border-radius: 5px;
     font-weight: bold;
     margin-left: 5px;
+    text-decoration: none;
   }
   a:hover {
-    background-color: var(--blue);
-    color: white;
+    background-color: white;
+    color: black;
     cursor: pointer;
   }
 }
