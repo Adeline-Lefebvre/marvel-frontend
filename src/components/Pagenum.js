@@ -1,8 +1,6 @@
 import "../App.scss";
-import { useState } from "react";
 
-const Page = ({ data }) => {
-  const [page, setPage] = useState(1);
+const Page = ({ data, setPage, page }) => {
   const totalPages = Math.ceil(data.count / 100);
 
   return (

@@ -7,6 +7,7 @@ body {
   font-family: "Ubuntu", Arial, Helvetica;
   display: flex;
   padding: 20px;
+  margin-top: 5px;
   font-size: 18px;
   border-bottom: gray solid 1px;
 }
@@ -26,9 +27,48 @@ body {
   }
 }
 
+.searchBar {
+  margin: 20px auto;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 50%;
+}
+
+.searchBar {
+  input {
+    font-size: 17px;
+    line-height: 32px;
+    width: 100%;
+    color: white;
+    padding-left: 40px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: rgb(82, 82, 82);
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  input:focus {
+    outline: none;
+  }
+  ::placeholder {
+    color: rgb(219, 219, 219);
+    font-family: "Ubuntu", Arial, Helvetica;
+  }
+  i {
+    font-size: 15px;
+    color: rgb(185, 185, 185);
+    position: absolute;
+    top: 10px;
+    left: 15px;
+  }
+}
+
 .characters {
   width: 95%;
-  margin: 50px auto;
+  margin: 30px auto;
   display: flex;
   flex-wrap: wrap;
   font-family: "Ubuntu", Arial, Helvetica;
@@ -50,6 +90,70 @@ body {
     width: 250px;
     height: 250px;
     object-fit: cover;
+    margin: 15px 0;
+  }
+  .description {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.character-page {
+  font-family: "Ubuntu", Arial, Helvetica;
+  display: flex;
+  flex-direction: column;
+}
+
+.character-page {
+  .character-infos {
+    display: flex;
+    margin: 40px auto;
+    align-items: center;
+  }
+  .character-infos {
+    .name {
+      font-size: 30px;
+      font-weight: 700;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      margin: 0 auto;
+      border-radius: 5px;
+      margin-right: 20px;
+    }
+    .description {
+      width: 350px;
+      line-height: 25px;
+      margin-top: 20px;
+    }
+  }
+}
+
+.comics {
+  width: 95%;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Ubuntu", Arial, Helvetica;
+}
+
+.comic {
+  max-width: 250px;
+  margin: 15px 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.comic {
+  .name {
+    text-align: center;
+    font-size: 14px;
+  }
+  img {
+    width: 250px;
     margin: 15px 0;
   }
   .description {

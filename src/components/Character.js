@@ -1,19 +1,25 @@
 import "../App.scss";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Character = ({ character }) => {
+  const history = useHistory();
+
   const url = `${character.thumbnail.path}.${character.thumbnail.extension}`;
 
   return (
-    <Link
-      to={`/character/${character._id}`}
-      state={{ character: character, url: url }}
+    <div
       className="character"
+      onClick={() => {
+        history.push({
+          pathname: `/character/${character._id}`,
+          state: { character: character },
+        });
+      }}
     >
       <div className="name">{character.name}</div>
       <img src={url} alt="" />
       <div className="description">{character.description}</div>
-    </Link>
+    </div>
   );
 };
 
