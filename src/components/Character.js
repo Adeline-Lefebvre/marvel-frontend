@@ -5,7 +5,7 @@ const Character = ({
   character,
   favCharacters,
   setFavCharacters,
-  setFavorites,
+  setFavCharactersCookie,
 }) => {
   const history = useHistory();
 
@@ -19,7 +19,7 @@ const Character = ({
           const newTab = [...favCharacters];
           newTab.push(character);
           setFavCharacters(newTab);
-          setFavorites();
+          setFavCharactersCookie();
         }}
       ></i>
       <div

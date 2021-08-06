@@ -1,6 +1,6 @@
 import "../App.scss";
 
-const Comic = ({ comic, favComics, setFavComics, setFavorites }) => {
+const Comic = ({ comic, favComics, setFavComics, setFavComicsCookie }) => {
   const url = `${comic.thumbnail.path}.${comic.thumbnail.extension}`;
 
   return (
@@ -11,7 +11,7 @@ const Comic = ({ comic, favComics, setFavComics, setFavorites }) => {
           const newTab = [...favComics];
           newTab.push(comic);
           setFavComics(newTab);
-          setFavorites();
+          setFavComicsCookie();
         }}
       ></i>
       <div className="comic">

@@ -5,7 +5,11 @@ import Searchbar from "../components/Searchbar.js";
 import Character from "../components/Character.js";
 import Pagenum from "../components/Pagenum.js";
 
-const Characters = ({ favCharacters, setFavCharacters, setFavorites }) => {
+const Characters = ({
+  favCharacters,
+  setFavCharacters,
+  setFavCharactersCookie,
+}) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -45,7 +49,7 @@ const Characters = ({ favCharacters, setFavCharacters, setFavorites }) => {
               key={character._id}
               favCharacters={favCharacters}
               setFavCharacters={setFavCharacters}
-              setFavorites={setFavorites}
+              setFavCharactersCookie={setFavCharactersCookie}
             />
           );
         })}
