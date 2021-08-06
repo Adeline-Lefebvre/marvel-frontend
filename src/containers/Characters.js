@@ -5,7 +5,7 @@ import Searchbar from "../components/Searchbar.js";
 import Character from "../components/Character.js";
 import Pagenum from "../components/Pagenum.js";
 
-const Characters = () => {
+const Characters = ({ favCharacters, setFavCharacters, setFavorites }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -39,7 +39,15 @@ const Characters = () => {
       <Searchbar setTitle={setTitle} placeholder={placeholder} />
       <div className="characters">
         {data.results.map((character) => {
-          return <Character character={character} key={character._id} />;
+          return (
+            <Character
+              character={character}
+              key={character._id}
+              favCharacters={favCharacters}
+              setFavCharacters={setFavCharacters}
+              setFavorites={setFavorites}
+            />
+          );
         })}
       </div>
       <Pagenum data={data} setPage={setPage} page={page} />

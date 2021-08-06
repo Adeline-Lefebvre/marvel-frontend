@@ -79,12 +79,14 @@ body {
   margin: 15px 10px;
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
 
 .character {
   .name {
     text-align: center;
     font-size: 16px;
+    font-weight: bold;
   }
   img {
     width: 250px;
@@ -96,6 +98,22 @@ body {
     margin-bottom: 10px;
     font-size: 12px;
     line-height: 15px;
+  }
+}
+
+.favorite-parent {
+  position: relative;
+}
+.favorite-parent {
+  i {
+    position: absolute;
+    color: white;
+    background-color: rgba(#ed161f, 1);
+    padding: 5px;
+    right: 10px;
+    top: 46px;
+    text-align: center;
+    cursor: pointer;
   }
 }
 
@@ -161,6 +179,14 @@ body {
     font-size: 12px;
     line-height: 15px;
   }
+}
+
+.title {
+  font-family: "Ubuntu", Arial, Helvetica;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  margin: 20px 0;
 }
 
 .page-num {

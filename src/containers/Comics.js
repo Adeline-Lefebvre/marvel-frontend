@@ -5,7 +5,7 @@ import Comic from "../components/Comic.js";
 import Searchbar from "../components/Searchbar.js";
 import Pagenum from "../components/Pagenum.js";
 
-const Comics = () => {
+const Comics = ({ favComics, setFavComics }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [title, setTitle] = useState("");
@@ -40,7 +40,14 @@ const Comics = () => {
       <Searchbar setTitle={setTitle} placeholder={placeholder} />
       <div className="comics">
         {data.results.map((comic) => {
-          return <Comic comic={comic} key={comic._id} />;
+          return (
+            <Comic
+              comic={comic}
+              key={comic._id}
+              favComics={favComics}
+              setFavComics={setFavComics}
+            />
+          );
         })}
       </div>
       <Pagenum data={data} setPage={setPage} page={page} />
