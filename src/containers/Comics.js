@@ -5,7 +5,7 @@ import Comic from "../components/Comic.js";
 import Searchbar from "../components/Searchbar.js";
 import Pagenum from "../components/Pagenum.js";
 
-const Comics = ({ favComics, setFavComics }) => {
+const Comics = ({ favComics, setFavComics, setFavorites }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [title, setTitle] = useState("");
@@ -46,6 +46,7 @@ const Comics = ({ favComics, setFavComics }) => {
               key={comic._id}
               favComics={favComics}
               setFavComics={setFavComics}
+              setFavorites={setFavorites}
             />
           );
         })}

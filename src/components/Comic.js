@@ -1,7 +1,6 @@
 import "../App.scss";
-import Cookies from "js-cookie";
 
-const Comic = ({ comic, favComics, setFavComics }) => {
+const Comic = ({ comic, favComics, setFavComics, setFavorites }) => {
   const url = `${comic.thumbnail.path}.${comic.thumbnail.extension}`;
 
   return (
@@ -12,11 +11,7 @@ const Comic = ({ comic, favComics, setFavComics }) => {
           const newTab = [...favComics];
           newTab.push(comic);
           setFavComics(newTab);
-          Cookies.set("favComics", favComics, {
-            expires: 7,
-            sameSite: "none",
-            secure: true,
-          });
+          setFavorites();
         }}
       ></i>
       <div className="comic">

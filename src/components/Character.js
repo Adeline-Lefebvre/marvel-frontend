@@ -1,8 +1,12 @@
 import "../App.scss";
 import { useHistory } from "react-router-dom";
-import Cookies from "js-cookie";
 
-const Character = ({ character, favCharacters, setFavCharacters }) => {
+const Character = ({
+  character,
+  favCharacters,
+  setFavCharacters,
+  setFavorites,
+}) => {
   const history = useHistory();
 
   const url = `${character.thumbnail.path}.${character.thumbnail.extension}`;
@@ -15,11 +19,7 @@ const Character = ({ character, favCharacters, setFavCharacters }) => {
           const newTab = [...favCharacters];
           newTab.push(character);
           setFavCharacters(newTab);
-          Cookies.set("favCharacters", favCharacters, {
-            expires: 7,
-            sameSite: "none",
-            secure: true,
-          });
+          setFavorites();
         }}
       ></i>
       <div
