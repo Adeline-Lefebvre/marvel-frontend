@@ -14,10 +14,10 @@ function App() {
   const [favCharacters, setFavCharacters] = useState([]);
   const [favComics, setFavComics] = useState([]);
 
-  useEffect(() => {
-    setFavCharacters(JSON.parse(Cookies.get("favCharacters")));
-    setFavComics(JSON.parse(Cookies.get("favComics")));
-  }, []);
+  // useEffect(() => {
+  //   setFavCharacters(JSON.parse(Cookies.get("favCharacters")));
+  //   setFavComics(JSON.parse(Cookies.get("favComics")));
+  // }, []);
 
   return (
     <Router>
