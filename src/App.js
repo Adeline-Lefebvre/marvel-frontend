@@ -14,30 +14,6 @@ function App() {
   const [favCharacters, setFavCharacters] = useState([]);
   const [favComics, setFavComics] = useState([]);
 
-  const setFavCharactersCookie = () => {
-    if (favCharacters) {
-      Cookies.set("favCharacters", JSON.stringify(favCharacters), {
-        expires: 7,
-        sameSite: "none",
-        secure: true,
-      });
-    } else {
-      Cookies.remove("favCharacters");
-    }
-  };
-
-  const setFavComicsCookie = () => {
-    if (favComics) {
-      Cookies.set("favComics", JSON.stringify(favComics), {
-        expires: 7,
-        sameSite: "none",
-        secure: true,
-      });
-    } else {
-      Cookies.remove("favComics");
-    }
-  };
-
   useEffect(() => {
     setFavCharacters(JSON.parse(Cookies.get("favCharacters")));
     setFavComics(JSON.parse(Cookies.get("favComics")));
@@ -51,18 +27,13 @@ function App() {
           <Characters
             favCharacters={favCharacters}
             setFavCharacters={setFavCharacters}
-            setFavCharactersCookie={setFavCharactersCookie}
           />
         </Route>
         <Route path="/character/:id">
           <Character />
         </Route>
         <Route path="/comics">
-          <Comics
-            favComics={favComics}
-            setFavComics={setFavComics}
-            setFavComicsCookie={setFavComicsCookie}
-          />
+          <Comics favComics={favComics} setFavComics={setFavComics} />
         </Route>
         <Route path="/favorites">
           <Favorites favCharacters={favCharacters} favComics={favComics} />

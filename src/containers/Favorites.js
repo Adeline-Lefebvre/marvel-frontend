@@ -1,18 +1,15 @@
 import "../App.scss";
 import { useHistory } from "react-router-dom";
-import Cookies from "js-cookie";
 
 const Favorites = ({ favCharacters, favComics }) => {
   const history = useHistory();
-  const favComicsCookie = JSON.parse(Cookies.get("favComics"));
-  const favCharactersCookie = JSON.parse(Cookies.get("favCharacters"));
 
   return (
     <div>
       <div className="title">Comics Favoris</div>
       <div className="comics">
-        {favComicsCookie &&
-          favComicsCookie.map((comic) => {
+        {favComics &&
+          favComics.map((comic) => {
             return (
               <div className="comic" key={comic._id}>
                 <div>{comic.title}</div>
@@ -25,8 +22,8 @@ const Favorites = ({ favCharacters, favComics }) => {
 
       <div className="title">Personnages favoris</div>
       <div className="characters">
-        {favCharactersCookie &&
-          favCharactersCookie.map((character) => {
+        {favCharacters &&
+          favCharacters.map((character) => {
             return (
               <div
                 className="character"

@@ -1,15 +1,26 @@
 import "../App.scss";
 import { useHistory } from "react-router-dom";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 
-const Character = ({
-  character,
-  favCharacters,
-  setFavCharacters,
-  setFavCharactersCookie,
-}) => {
+const Character = ({ character, favCharacters, setFavCharacters }) => {
   const history = useHistory();
-
   const url = `${character.thumbnail.path}.${character.thumbnail.extension}`;
+
+  useEffect(() => {
+    const setCookie = () => {
+      if (favCharacters) {
+        Cookies.set("favCharacters", JSON.stringify(favCharacters), {
+          expires: 7,
+          sameSite: "none",
+          secure: true,
+        });
+      } else {
+        Cookies.remove("favCharacters");
+      }
+    };
+    setCookie();
+  }, [favCharacters]);
 
   return (
     <div className="favorite-parent">
@@ -19,7 +30,6 @@ const Character = ({
           const newTab = [...favCharacters];
           newTab.push(character);
           setFavCharacters(newTab);
-          setFavCharactersCookie();
         }}
       ></i>
       <div

@@ -1,7 +1,24 @@
 import "../App.scss";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 
-const Comic = ({ comic, favComics, setFavComics, setFavComicsCookie }) => {
+const Comic = ({ comic, favComics, setFavComics }) => {
   const url = `${comic.thumbnail.path}.${comic.thumbnail.extension}`;
+
+  useEffect(() => {
+    const setCookie = () => {
+      if (favComics) {
+        Cookies.set("favComics", JSON.stringify(favComics), {
+          expires: 7,
+          sameSite: "none",
+          secure: true,
+        });
+      } else {
+        Cookies.remove("favComics");
+      }
+    };
+    setCookie();
+  }, [favComics]);
 
   return (
     <div className="favorite-parent">
@@ -11,7 +28,6 @@ const Comic = ({ comic, favComics, setFavComics, setFavComicsCookie }) => {
           const newTab = [...favComics];
           newTab.push(comic);
           setFavComics(newTab);
-          setFavComicsCookie();
         }}
       ></i>
       <div className="comic">
