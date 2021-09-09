@@ -2,10 +2,12 @@ import "../App.scss";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import ReactLoading from "react-loading";
 import Comic from "../components/Comic.js";
 
-const Character = () => {
+const Character = ({ storeFavComics }) => {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const location = useLocation();
   const { name, description, thumbnail, _id } = location.state.character;
@@ -18,6 +20,7 @@ const Character = () => {
         );
         console.log(response.data);
         setData(response.data);
+        setIsLoading(false);
       } catch (error) {
         console.log(error.message);
       }
@@ -25,7 +28,15 @@ const Character = () => {
     fetchData();
   }, [_id]);
 
-  return (
+  return isLoading ? (
+    <ReactLoading
+      type="bubbles"
+      color="#ed161f"
+      height={600}
+      width={160}
+      className="loading"
+    />
+  ) : (
     <div className="character-page">
       <div className="character-infos">
         <img src={`${thumbnail.path}.jpg`} alt="" />
@@ -37,7 +48,13 @@ const Character = () => {
       <div className="comics">
         {data.comics &&
           data.comics.map((comic) => {
-            return <Comic key={comic._id} comic={comic}></Comic>;
+            return (
+              <Comic
+                key={comic._id}
+                comic={comic}
+                storeFavComics={storeFavComics}
+              />
+            );
           })}
       </div>
     </div>

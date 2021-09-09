@@ -1,0 +1,18 @@
+.alert {
+  color: white;
+  font-family: "Ubuntu", Arial, Helvetica;
+  position: absolute;
+  right: 30px;
+  top: 660px;
+  border-radius: 5px;
+  width: 280px;
+  padding: 15px;
+  line-height: 25px;
+}
+
+.success {
+  background-color: #2ecc71;
+}
+.error {
+  background-color: #e74c3c;
+}

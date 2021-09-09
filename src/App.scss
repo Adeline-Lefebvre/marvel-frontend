@@ -1,5 +1,6 @@
 body {
   background-color: rgb(43, 43, 43);
+  font-family: "Ubuntu", Arial, Helvetica;
   color: white;
 }
 
@@ -68,16 +69,17 @@ body {
 }
 
 .characters {
-  width: 95%;
+  width: 92%;
   margin: 30px auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   font-family: "Ubuntu", Arial, Helvetica;
 }
 
 .character {
   max-width: 250px;
-  margin: 15px 10px;
+  margin: 15px 0;
   text-decoration: none;
   color: white;
   cursor: pointer;
@@ -87,7 +89,8 @@ body {
   .name {
     text-align: center;
     font-size: 16px;
-    font-weight: bold;
+    max-height: 16px;
+    overflow: hidden;
   }
   img {
     width: 250px;
@@ -102,24 +105,21 @@ body {
   }
 }
 
-.favorite-parent {
-  position: relative;
+.fav-icon {
+  position: absolute;
+  color: white;
+  background-color: #ed161f;
+  padding: 5px;
+  right: 0;
+  top: 31px;
+  text-align: center;
+  cursor: pointer;
+  border-bottom-left-radius: 5px;
+  z-index: 10;
 }
-.favorite-parent {
-  i {
-    position: absolute;
-    color: white;
-    background-color: rgba(#ed161f, 1);
-    padding: 5px;
-    right: 10px;
-    top: 46px;
-    text-align: center;
-    cursor: pointer;
-  }
-  i:hover {
-    background-color: white;
-    color: #ed161f;
-  }
+.fav-icon:hover {
+  background-color: white;
+  color: #ed161f;
 }
 
 .character-page {
@@ -156,16 +156,17 @@ body {
 }
 
 .comics {
-  width: 95%;
+  width: 92%;
   margin: 30px auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   font-family: "Ubuntu", Arial, Helvetica;
 }
 
 .comic {
   max-width: 250px;
-  margin: 15px 10px;
+  margin: 15px 0;
   text-decoration: none;
   color: white;
 }
@@ -174,6 +175,9 @@ body {
   .name {
     text-align: center;
     font-size: 14px;
+    line-height: 16px;
+    max-height: 16px;
+    overflow: hidden;
   }
   img {
     width: 250px;
@@ -191,7 +195,11 @@ body {
   text-align: center;
   font-size: 25px;
   font-weight: 700;
-  margin: 20px 0;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  background-color: black;
+  padding: 20px 0;
+  box-shadow: 0 0 5px black;
 }
 
 .page-num {
@@ -228,7 +236,7 @@ body {
 
 .footer {
   font-family: "Ubuntu", Arial, Helvetica;
-  border-top: rgb(231, 231, 231) solid 1px;
+  border-top: gray solid 1px;
   line-height: 200px;
   text-align: center;
   font-size: 16px;
@@ -252,4 +260,11 @@ body {
     color: black;
     cursor: pointer;
   }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }

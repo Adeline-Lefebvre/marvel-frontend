@@ -1,11 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider as AlertProvider } from "react-alert";
 import "./index.css";
 import App from "./App";
 
+const AlertTemplate = ({ message, options }) => (
+  <div className={options.type === "error" ? "alert error" : "alert success"}>
+    {message}
+  </div>
+);
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AlertProvider template={AlertTemplate}>
+      <App />
+    </AlertProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

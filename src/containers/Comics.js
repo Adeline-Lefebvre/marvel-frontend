@@ -1,11 +1,12 @@
 import "../App.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import ReactLoading from "react-loading";
 import Comic from "../components/Comic.js";
 import Searchbar from "../components/Searchbar.js";
 import Pagenum from "../components/Pagenum.js";
 
-const Comics = ({ favComics, setFavComics }) => {
+const Comics = ({ storeFavComics }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [title, setTitle] = useState("");
@@ -34,7 +35,13 @@ const Comics = ({ favComics, setFavComics }) => {
   }, [page, titleQuery]);
 
   return isLoading ? (
-    <span>En cours de chargement...</span>
+    <ReactLoading
+      type="bubbles"
+      color="#ed161f"
+      height={600}
+      width={160}
+      className="loading"
+    />
   ) : (
     <div>
       <Searchbar setTitle={setTitle} placeholder={placeholder} />
@@ -44,8 +51,7 @@ const Comics = ({ favComics, setFavComics }) => {
             <Comic
               comic={comic}
               key={comic._id}
-              favComics={favComics}
-              setFavComics={setFavComics}
+              storeFavComics={storeFavComics}
             />
           );
         })}
@@ -56,6 +62,3 @@ const Comics = ({ favComics, setFavComics }) => {
 };
 
 export default Comics;
-
-// système permettant de mettre chaque fiche en favoris
-// conserver ces favoris dans la mémoire locale du navigateur (Cookies ou Local Storage) de l’utilisateur.
