@@ -70,6 +70,13 @@ function App() {
     } else {
       setFavCharacters([]);
       Cookies.remove("favCharacters");
+      alert.show(
+        `${favToDelete.name} a bien été supprimé.e de la liste de favoris`,
+        {
+          timeout: 4000,
+          type: "success",
+        }
+      );
     }
   };
 
@@ -121,6 +128,13 @@ function App() {
     } else {
       setFavComics([]);
       Cookies.remove("favComics");
+      alert.show(
+        `${favToDelete.title} a bien été supprimé de la liste de favoris`,
+        {
+          timeout: 4000,
+          type: "success",
+        }
+      );
     }
   };
 
